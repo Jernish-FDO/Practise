@@ -1,6 +1,6 @@
-import { motion } from 'framer-motion'
-import { ArrowRight, Github, Linkedin, Mail } from 'lucide-react'
-import { Link } from 'react-router-dom'
+import { motion } from 'framer-motion';
+import { ArrowRight, Github, Linkedin, Mail, Phone } from 'lucide-react';
+import { Link } from 'react-router-dom';
 
 const Home = () => {
   const containerVariants = {
@@ -12,134 +12,135 @@ const Home = () => {
         delayChildren: 0.3,
       },
     },
-  }
+  };
 
   const itemVariants = {
     hidden: { opacity: 0, y: 20 },
     visible: {
       opacity: 1,
       y: 0,
-      transition: {
-        duration: 0.8,
-        ease: 'easeOut',
-      },
+      transition: { duration: 0.8, ease: 'easeOut' },
     },
-  }
-
-  const floatingVariants = {
-    animate: {
-      y: [0, -20, 0],
-      transition: {
-        duration: 3,
-        repeat: Infinity,
-        ease: 'easeInOut',
-      },
-    },
-  }
+  };
 
   return (
-    <div className="min-h-screen pt-20 px-4 sm:px-6 lg:px-8 flex items-center justify-center">
-      <motion.div
-        variants={containerVariants}
-        initial="hidden"
-        animate="visible"
-        className="max-w-4xl w-full text-center"
-      >
-        {/* Title */}
-        <motion.div variants={itemVariants} className="mb-6">
-          <h1 className="text-5xl sm:text-7xl font-bold text-glow-lg mb-4">
-            Amala Jernish
-          </h1>
-          <p className="text-xl sm:text-2xl text-accent font-mono mb-2">
-            NETWORK TECHNICIAN & IoT DEVELOPER
-          </p>
-        </motion.div>
-
-        {/* Description */}
-        <motion.p
-          variants={itemVariants}
-          className="text-gray-400 text-lg max-w-2xl mx-auto mb-8"
-        >
-          Building intelligent IoT solutions and network infrastructures. Passionate about
-          cybersecurity, automation, and cutting-edge technologies.
-        </motion.p>
-
-        {/* CTA Buttons */}
+    <div className="min-h-screen bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 text-white overflow-hidden">
+      {/* Animated Background Elements */}
+      <div className="fixed inset-0 overflow-hidden pointer-events-none">
         <motion.div
-          variants={itemVariants}
-          className="flex flex-col sm:flex-row gap-4 justify-center mb-12"
-        >
-          <Link
-            to="/projects"
-            className="btn-primary inline-flex items-center justify-center gap-2"
-          >
-            View My Work <ArrowRight className="w-4 h-4" />
-          </Link>
-          <Link
-            to="/contact"
-            className="btn-secondary inline-flex items-center justify-center gap-2"
-          >
-            Get In Touch
-          </Link>
-        </motion.div>
-
-        {/* Social Links */}
+          className="absolute -top-40 -right-40 w-80 h-80 bg-teal-500 rounded-full mix-blend-multiply filter blur-3xl opacity-20"
+          animate={{ y: [0, 40, 0], x: [0, 40, 0] }}
+          transition={{ duration: 8, repeat: Infinity, ease: 'easeInOut' }}
+        />
         <motion.div
-          variants={itemVariants}
-          className="flex justify-center gap-6 mb-16"
-        >
-          <a
-            href="https://github.com/Jernish-FDO"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="p-3 rounded-lg hover:bg-green-500/10 border border-green-500/20 hover:border-green-500/50 transition-all group"
-            title="GitHub"
-          >
-            <Github className="w-6 h-6 group-hover:scale-110 transition-transform" />
-          </a>
-          <a
-            href="mailto:amalajernish228@gmail.com"
-            className="p-3 rounded-lg hover:bg-green-500/10 border border-green-500/20 hover:border-green-500/50 transition-all group"
-            title="Email"
-          >
-            <Mail className="w-6 h-6 group-hover:scale-110 transition-transform" />
-          </a>
-          <a
-            href="https://linkedin.com/in/amala-jernish"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="p-3 rounded-lg hover:bg-green-500/10 border border-green-500/20 hover:border-green-500/50 transition-all group"
-            title="LinkedIn"
-          >
-            <Linkedin className="w-6 h-6 group-hover:scale-110 transition-transform" />
-          </a>
-        </motion.div>
+          className="absolute -bottom-40 -left-40 w-80 h-80 bg-cyan-500 rounded-full mix-blend-multiply filter blur-3xl opacity-20"
+          animate={{ y: [0, -40, 0], x: [0, -40, 0] }}
+          transition={{ duration: 10, repeat: Infinity, ease: 'easeInOut' }}
+        />
+      </div>
 
-        {/* Floating Elements */}
+      {/* Hero Content */}
+      <div className="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 min-h-screen flex items-center justify-center">
         <motion.div
-          variants={itemVariants}
-          className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-20"
+          className="text-center py-20"
+          variants={containerVariants}
+          initial="hidden"
+          animate="visible"
         >
-          {[
-            { icon: '🚀', title: 'Fast', desc: 'Optimized performance' },
-            { icon: '🎨', title: 'Modern', desc: 'Latest technologies' },
-            { icon: '🔒', title: 'Secure', desc: 'Enterprise-grade' },
-          ].map((item, i) => (
-            <motion.div
-              key={i}
-              variants={floatingVariants}
-              animate="animate"
-              className="card text-center p-8"
+          {/* Badge */}
+          <motion.div variants={itemVariants} className="mb-6 inline-block">
+            <div className="bg-teal-500/10 border border-teal-500/20 rounded-full px-4 py-2 text-sm font-semibold text-teal-300">
+              ✨ Welcome to my portfolio
+            </div>
+          </motion.div>
+
+          {/* Main Heading */}
+          <motion.h1
+            variants={itemVariants}
+            className="text-5xl sm:text-6xl lg:text-7xl font-bold mb-6 bg-gradient-to-r from-teal-300 via-cyan-300 to-teal-400 bg-clip-text text-transparent"
+          >
+            Hi, I'm Amala Jernish
+          </motion.h1>
+
+          {/* Subheading */}
+          <motion.p
+            variants={itemVariants}
+            className="text-xl sm:text-2xl text-slate-300 mb-8 max-w-3xl mx-auto font-light"
+          >
+            Full-stack Developer | IoT Enthusiast | AI Integration Specialist
+          </motion.p>
+
+          {/* Description */}
+          <motion.p
+            variants={itemVariants}
+            className="text-lg text-slate-400 mb-12 max-w-2xl mx-auto leading-relaxed"
+          >
+            I build fast, responsive web applications and integrate cutting-edge IoT systems with cloud services. 
+            Specializing in React, Node.js, and embedded systems to turn innovative ideas into reality.
+          </motion.p>
+
+          {/* CTA Buttons */}
+          <motion.div variants={itemVariants} className="flex flex-col sm:flex-row gap-4 justify-center mb-12">
+            <Link
+              to="/projects"
+              className="group inline-flex items-center justify-center px-8 py-4 bg-gradient-to-r from-teal-500 to-cyan-500 text-slate-900 font-bold rounded-lg hover:shadow-lg hover:shadow-teal-500/50 transition-all duration-300 hover:scale-105"
             >
-              <div className="text-4xl mb-4">{item.icon}</div>
-              <h3 className="text-xl font-bold text-primary mb-2">{item.title}</h3>
-              <p className="text-gray-400 text-sm">{item.desc}</p>
-            </motion.div>
-          ))}
+              View My Work
+              <ArrowRight className="ml-2 group-hover:translate-x-1 transition-transform" size={20} />
+            </Link>
+            <Link
+              to="/contact"
+              className="inline-flex items-center justify-center px-8 py-4 bg-slate-700/50 border border-teal-500/30 text-white font-bold rounded-lg hover:bg-slate-700 hover:border-teal-500 transition-all duration-300"
+            >
+              Get in Touch
+            </Link>
+          </motion.div>
+
+          {/* Social Links */}
+          <motion.div variants={itemVariants} className="flex gap-6 justify-center">
+            <a
+              href="https://github.com/Jernish-FDO"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-slate-400 hover:text-teal-300 transition-colors p-3 bg-slate-800/50 rounded-lg hover:bg-slate-700"
+              aria-label="GitHub"
+            >
+              <Github size={24} />
+            </a>
+            <a
+              href="mailto:amalajernish228@gmail.com"
+              className="text-slate-400 hover:text-teal-300 transition-colors p-3 bg-slate-800/50 rounded-lg hover:bg-slate-700"
+              aria-label="Email"
+            >
+              <Mail size={24} />
+            </a>
+            <a
+              href="tel:+916374160486"
+              className="text-slate-400 hover:text-teal-300 transition-colors p-3 bg-slate-800/50 rounded-lg hover:bg-slate-700"
+              aria-label="Phone"
+            >
+              <Phone size={24} />
+            </a>
+          </motion.div>
         </motion.div>
+      </div>
+
+      {/* Scroll Indicator */}
+      <motion.div
+        className="absolute bottom-8 left-1/2 transform -translate-x-1/2 z-10"
+        animate={{ y: [0, 10, 0] }}
+        transition={{ duration: 2, repeat: Infinity }}
+      >
+        <div className="w-6 h-10 border-2 border-teal-500/50 rounded-full flex justify-center">
+          <motion.div
+            className="w-1 h-2 bg-teal-500 rounded-full mt-2"
+            animate={{ y: [0, 12, 0] }}
+            transition={{ duration: 2, repeat: Infinity }}
+          />
+        </div>
       </motion.div>
     </div>
-  )
-}
+  );
+};
 
-export default Home
+export default Home;
