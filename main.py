@@ -25,9 +25,11 @@ from telegram.ext import (
 )
 
 # ── CONFIG ─────────────────────────────────────────────────────
-BOT_TOKEN   = "YOUR_TOKEN_HERE"
-ADMIN_ID    = 123456789
-BOT_VERSION = "2.0"
+load_dotenv()  # loads .env file
+
+BOT_TOKEN = os.getenv("BOT_TOKEN")
+ADMIN_ID  = int(os.getenv("ADMIN_ID"))
+BOT_VERSION = os.getenv("BOT_VERSION")
 
 # ── STATE ──────────────────────────────────────────────────────
 user_sessions = {}
